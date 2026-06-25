@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Laxmi Facade — Premium facade engineering and glazing company. Specialists in Structural Glazing, ACP Cladding, Curtain Wall Systems, Spider Glazing, and Aluminum Fabrication." />
+  <title>Laxmi Facade | Premium Facade Engineering & Glazing Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --navy: #0d2257;
+      --blue: #1a4fba;
+      --blue-light: #2563eb;
+      --gold: #f0a500;
+      --gold-light: #ffc840;
+      --steel: #2c3e57;
+      --gray-dark: #1a1f2e;
+      --gray-mid: #64748b;
+      --gray-light: #f1f5f9;
+      --white: #ffffff;
+      --glass-bg: rgba(255,255,255,0.08);
+      --glass-border: rgba(255,255,255,0.15);
+      --shadow-blue: 0 20px 60px rgba(26,79,186,0.25);
+      --shadow-gold: 0 10px 40px rgba(240,165,0,0.3);
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-accent: 'Rajdhani', sans-serif;
+      --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--steel);
+      background: var(--white);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--gray-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-accent); font-size: 13px; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; display: block; height: 1px; background: var(--gold);
+    }
+    .section-label::before { width: 30px; }
+    .section-label::after { width: 30px; }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--navy); line-height: 1.2; margin-bottom: 20px;
+    }
+    .section-title span { color: var(--blue); }
+    .section-subtitle { font-size: 1.05rem; color: var(--gray-mid); max-width: 600px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px; border-radius: 4px; font-family: var(--font-accent);
+      font-size: 15px; font-weight: 600; letter-spacing: 1px;
+      cursor: pointer; border: none; transition: var(--transition);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      color: var(--white);
+      box-shadow: var(--shadow-blue);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 25px 70px rgba(26,79,186,0.4); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .btn-outline:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); transform: translateY(-2px); }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy); box-shadow: var(--shadow-gold);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 20px 50px rgba(240,165,0,0.45); }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 20px 0;
+      transition: var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(10,18,47,0.97);
+      backdrop-filter: blur(20px);
+      padding: 12px 0;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo img {
+      height: 52px; width: auto;
+    }
+    .nav-logo-text {
+      display: flex; flex-direction: column;
+    }
+    .nav-logo-text strong {
+      font-family: var(--font-display); font-size: 1.3rem;
+      color: var(--white); line-height: 1;
+    }
+    .nav-logo-text span {
+      font-family: var(--font-accent); font-size: 11px;
+      letter-spacing: 2px; color: var(--gold); text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+    }
+    .nav-links a {
+      font-family: var(--font-accent); font-size: 14px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.8);
+      position: relative; transition: var(--transition);
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 2px; background: var(--gold); transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      background: var(--gold); color: var(--navy);
+      padding: 10px 22px; border-radius: 4px;
+      font-family: var(--font-accent); font-weight: 700; font-size: 13px;
+      letter-spacing: 1px; text-transform: uppercase; transition: var(--transition);
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 26px; height: 2px;
+      background: var(--white); transition: var(--transition);
+    }
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--gray-dark); z-index: 999; flex-direction: column;
+      align-items: center; justify-content: center; gap: 36px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-display); font-size: 2rem; color: var(--white);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-close {
+      position: absolute; top: 24px; right: 24px; font-size: 2rem;
+      color: var(--white); cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative; height: 100vh; min-height: 700px;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80') center/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(13,34,87,0.92) 0%, rgba(13,34,87,0.75) 50%, rgba(26,79,186,0.5) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 1; max-width: 780px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(240,165,0,0.15); border: 1px solid rgba(240,165,0,0.4);
+      padding: 8px 20px; border-radius: 30px; margin-bottom: 28px;
+    }
+    .hero-badge span {
+      font-family: var(--font-accent); font-size: 12px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+      color: var(--white); line-height: 1.15; margin-bottom: 24px;
+      font-weight: 800;
+    }
+    .hero-title .accent { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,0.8);
+      line-height: 1.8; margin-bottom: 40px; max-width: 620px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      z-index: 1; text-align: center;
+    }
+    .scroll-dot {
+      width: 30px; height: 50px; border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 15px; margin: 0 auto 8px; position: relative;
+    }
+    .scroll-dot::after {
+      content: ''; position: absolute; top: 8px; left: 50%;
+      transform: translateX(-50%); width: 4px; height: 8px;
+      background: var(--gold); border-radius: 2px;
+      animation: scrollAnim 1.8s infinite;
+    }
+    @keyframes scrollAnim {
+      0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      100% { transform: translateX(-50%) translateY(16px); opacity: 0; }
+    }
+    .scroll-label {
+      font-family: var(--font-accent); font-size: 11px; letter-spacing: 2px;
+      color: rgba(255,255,255,0.5); text-transform: uppercase;
+    }
+
+    /* ===== MARQUEE STRIP ===== */
+    .marquee-strip {
+      background: var(--navy); padding: 18px 0; overflow: hidden;
+    }
+    .marquee-inner {
+      display: flex; gap: 60px; animation: marquee 25s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--font-accent); font-size: 14px; font-weight: 600;
+      letter-spacing: 1px; color: rgba(255,255,255,0.7); text-transform: uppercase;
+    }
+    .marquee-item i { color: var(--gold); font-size: 12px; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ===== ABOUT ===== */
+    #about { padding: 120px 0; background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-image-wrap { position: relative; }
+    .about-main-img {
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 30px 80px rgba(13,34,87,0.2);
+    }
+    .about-main-img img {
+      width: 100%; height: 480px; object-fit: cover;
+    }
+    .about-accent-img {
+      position: absolute; bottom: -40px; right: -40px;
+      width: 220px; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      border: 4px solid var(--white);
+    }
+    .about-accent-img img { width: 100%; height: 160px; object-fit: cover; }
+    .experience-badge {
+      position: absolute; top: -20px; left: -20px;
+      background: var(--gold); padding: 20px 24px; border-radius: 8px;
+      text-align: center; box-shadow: var(--shadow-gold);
+    }
+    .experience-badge .num {
+      font-family: var(--font-display); font-size: 2.5rem; font-weight: 800;
+      color: var(--navy); line-height: 1;
+    }
+    .experience-badge .label {
+      font-family: var(--font-accent); font-size: 12px; font-weight: 600;
+      color: var(--navy); text-transform: uppercase; letter-spacing: 1px;
+    }
+    .about-text {}
+    .about-text p { color: var(--gray-mid); margin-bottom: 20px; font-size: 1rem; }
+    .about-features {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0;
+    }
+    .about-feature {
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .about-feature-icon {
+      width: 36px; height: 36px; background: rgba(26,79,186,0.1);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--blue);
+    }
+    .about-feature h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+    .about-feature p { font-size: 13px; color: var(--gray-mid); margin: 0; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      margin-top: 40px; border: 1px solid rgba(13,34,87,0.1);
+      border-radius: 8px; overflow: hidden;
+    }
+    .stat-item {
+      padding: 24px 20px; text-align: center;
+      border-right: 1px solid rgba(13,34,87,0.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--navy); line-height: 1;
+    }
+    .stat-num span { color: var(--gold); }
+    .stat-label { font-size: 12px; color: var(--gray-mid); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ===== SERVICES ===== */
+    #services {
+      padding: 120px 0;
+      background: linear-gradient(180deg, #f8fafc 0%, var(--white) 100%);
+    }
+    .services-header { text-align: center; margin-bottom: 64px; }
+    .services-header .section-subtitle { margin: 0 auto; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    }
+    .service-card {
+      background: var(--white); border-radius: 8px; overflow: hidden;
+      border: 1px solid rgba(13,34,87,0.08);
+      box-shadow: 0 4px 20px rgba(13,34,87,0.06);
+      transition: var(--transition); cursor: pointer;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(13,34,87,0.15);
+      border-color: var(--blue);
+    }
+    .service-img { position: relative; height: 180px; overflow: hidden; }
+    .service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .service-card:hover .service-img img { transform: scale(1.08); }
+    .service-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,34,87,0.7), transparent);
+    }
+    .service-icon-wrap {
+      position: absolute; bottom: 16px; left: 20px;
+      width: 44px; height: 44px;
+      background: var(--gold); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy); font-size: 18px;
+      box-shadow: 0 4px 15px rgba(240,165,0,0.4);
+    }
+    .service-body { padding: 24px; }
+    .service-body h3 {
+      font-family: var(--font-accent); font-size: 17px; font-weight: 700;
+      color: var(--navy); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .service-body p { font-size: 13.5px; color: var(--gray-mid); line-height: 1.7; margin-bottom: 16px; }
+    .service-link {
+      font-family: var(--font-accent); font-size: 13px; font-weight: 600;
+      color: var(--blue); letter-spacing: 1px; display: flex; align-items: center; gap: 6px;
+      transition: gap 0.2s;
+    }
+    .service-card:hover .service-link { gap: 12px; }
+
+    /* ===== PROJECTS ===== */
+    #projects { padding: 120px 0; background: var(--gray-dark); }
+    .projects-header { margin-bottom: 48px; }
+    .projects-header .section-title { color: var(--white); }
+    .projects-header .section-subtitle { color: rgba(255,255,255,0.6); }
+    .filter-tabs {
+      display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap;
+    }
+    .filter-tab {
+      padding: 8px 24px; border-radius: 30px; cursor: pointer;
+      font-family: var(--font-accent); font-size: 13px; font-weight: 600;
+      letter-spacing: 1px; transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7);
+      background: transparent;
+    }
+    .filter-tab.active, .filter-tab:hover {
+      background: var(--gold); color: var(--navy); border-color: var(--gold);
+    }
+    .projects-masonry {
+      columns: 3; column-gap: 20px;
+    }
+    .project-item {
+      break-inside: avoid; margin-bottom: 20px;
+      border-radius: 8px; overflow: hidden;
+      position: relative; cursor: pointer;
+    }
+    .project-item img { width: 100%; display: block; transition: transform 0.5s ease; }
+    .project-item:hover img { transform: scale(1.05); }
+    .project-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,34,87,0.92) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.35s ease; display: flex;
+      flex-direction: column; justify-content: flex-end; padding: 24px;
+    }
+    .project-item:hover .project-overlay { opacity: 1; }
+    .project-overlay h4 {
+      font-family: var(--font-display); font-size: 1.1rem; color: var(--white);
+      margin-bottom: 4px;
+    }
+    .project-overlay span {
+      font-family: var(--font-accent); font-size: 12px; color: var(--gold);
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .project-overlay .view-btn {
+      position: absolute; top: 20px; right: 20px;
+      width: 40px; height: 40px; background: var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy); font-size: 14px;
+    }
+
+    /* ===== WHY US ===== */
+    #why-us { padding: 120px 0; background: var(--white); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .why-image { position: relative; border-radius: 8px; overflow: hidden; }
+    .why-image img { width: 100%; height: 560px; object-fit: cover; }
+    .why-image-badge {
+      position: absolute; bottom: 30px; right: -20px;
+      background: var(--navy); color: var(--white);
+      padding: 24px 28px; border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(13,34,87,0.4);
+      border-left: 4px solid var(--gold);
+    }
+    .why-image-badge strong {
+      font-family: var(--font-display); font-size: 1.8rem; color: var(--gold);
+      display: block;
+    }
+    .why-image-badge span { font-size: 13px; color: rgba(255,255,255,0.7); }
+    .why-features { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
+    .why-feature {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 24px; border-radius: 8px; border: 1px solid rgba(13,34,87,0.08);
+      transition: var(--transition);
+    }
+    .why-feature:hover {
+      background: linear-gradient(135deg, rgba(26,79,186,0.05), rgba(240,165,0,0.05));
+      border-color: rgba(240,165,0,0.3);
+      transform: translateX(6px);
+    }
+    .why-icon {
+      width: 52px; height: 52px; background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--gold); font-size: 20px;
+    }
+    .why-feature h4 { font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .why-feature p { font-size: 14px; color: var(--gray-mid); margin: 0; }
+
+    /* ===== PROCESS ===== */
+    #process { padding: 120px 0; background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 100%); }
+    .process-header { text-align: center; margin-bottom: 80px; }
+    .process-header .section-title { color: var(--white); }
+    .process-header .section-subtitle { color: rgba(255,255,255,0.6); margin: 0 auto; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; position: relative;
+    }
+    .process-steps::before {
+      content: ''; position: absolute; top: 36px; left: 8%; right: 8%;
+      height: 2px; background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .process-step { text-align: center; padding: 0 16px; position: relative; }
+    .step-num {
+      width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 800;
+      position: relative; z-index: 1;
+    }
+    .step-num.active {
+      background: var(--gold); color: var(--navy);
+      box-shadow: 0 0 0 8px rgba(240,165,0,0.2);
+    }
+    .step-num.inactive {
+      background: var(--glass-bg); color: var(--white);
+      border: 2px solid var(--glass-border);
+    }
+    .step-icon-big { font-size: 1.8rem; margin-bottom: 12px; color: var(--gold); }
+    .process-step h4 {
+      font-family: var(--font-accent); font-size: 14px; font-weight: 700;
+      color: var(--white); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .process-step p { font-size: 13px; color: rgba(255,255,255,0.55); }
+
+    /* ===== TESTIMONIALS ===== */
+    #testimonials { padding: 120px 0; background: var(--gray-light); }
+    .testimonials-header { text-align: center; margin-bottom: 64px; }
+    .testimonials-carousel { position: relative; overflow: hidden; }
+    .testimonials-track {
+      display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .testimonial-card {
+      min-width: 100%; padding: 0 16px;
+    }
+    .testimonial-inner {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .testi-item {
+      background: var(--white); border-radius: 8px; padding: 32px;
+      box-shadow: 0 4px 20px rgba(13,34,87,0.06);
+      border-top: 3px solid transparent; transition: var(--transition);
+    }
+    .testi-item:hover {
+      border-top-color: var(--gold);
+      box-shadow: 0 12px 40px rgba(13,34,87,0.12);
+    }
+    .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 16px; }
+    .testi-text {
+      font-size: 15px; color: var(--steel); line-height: 1.8;
+      margin-bottom: 24px; font-style: italic;
+    }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar {
+      width: 48px; height: 48px; border-radius: 50%; overflow: hidden;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .testi-info strong { font-weight: 700; color: var(--navy); display: block; }
+    .testi-info span { font-size: 13px; color: var(--gray-mid); }
+    .carousel-controls {
+      display: flex; justify-content: center; gap: 12px; margin-top: 40px;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(13,34,87,0.2); cursor: pointer; transition: var(--transition);
+    }
+    .carousel-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+
+    /* ===== FAQ ===== */
+    #faq { padding: 120px 0; background: var(--white); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      border: 1px solid rgba(13,34,87,0.1); border-radius: 8px; overflow: hidden;
+    }
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px; cursor: pointer; gap: 16px;
+      font-weight: 600; color: var(--navy); font-size: 15px;
+      transition: background 0.2s;
+    }
+    .faq-question:hover { background: rgba(13,34,87,0.03); }
+    .faq-question.open { background: rgba(26,79,186,0.05); color: var(--blue); }
+    .faq-icon {
+      width: 28px; height: 28px; background: rgba(13,34,87,0.08);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--blue); transition: transform 0.3s;
+    }
+    .faq-question.open .faq-icon { transform: rotate(45deg); background: var(--gold); color: var(--navy); }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+    }
+    .faq-answer.open { max-height: 200px; }
+    .faq-answer-inner { padding: 0 24px 20px; font-size: 14px; color: var(--gray-mid); line-height: 1.8; }
+    .faq-cta { background: linear-gradient(135deg, var(--navy), var(--blue)); border-radius: 12px; padding: 48px; }
+    .faq-cta h3 { font-family: var(--font-display); font-size: 1.8rem; color: var(--white); margin-bottom: 12px; }
+    .faq-cta p { color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+    .faq-cta .contact-info { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .faq-cta .contact-row { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.85); font-size: 15px; }
+    .faq-cta .contact-row i { color: var(--gold); width: 20px; }
+
+    /* ===== CONTACT ===== */
+    #contact { padding: 120px 0; background: var(--gray-dark); }
+    .contact-header { text-align: center; margin-bottom: 64px; }
+    .contact-header .section-title { color: var(--white); }
+    .contact-header .section-subtitle { color: rgba(255,255,255,0.6); margin: 0 auto; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+    .contact-info-box { }
+    .contact-info-box h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--white); margin-bottom: 28px; }
+    .contact-detail {
+      display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px;
+    }
+    .contact-detail-icon {
+      width: 48px; height: 48px; border-radius: 8px;
+      background: rgba(240,165,0,0.15); border: 1px solid rgba(240,165,0,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 18px; flex-shrink: 0;
+    }
+    .contact-detail strong { display: block; color: var(--white); margin-bottom: 4px; font-size: 14px; }
+    .contact-detail span { color: rgba(255,255,255,0.6); font-size: 14px; }
+    .contact-social { display: flex; gap: 12px; margin-top: 36px; }
+    .social-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7); transition: var(--transition);
+    }
+    .social-icon:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .contact-form {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 48px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block; font-family: var(--font-accent); font-size: 12px;
+      font-weight: 600; letter-spacing: 1.5px; color: rgba(255,255,255,0.6);
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;
+      padding: 14px 18px; color: var(--white); font-family: var(--font-body);
+      font-size: 15px; transition: var(--transition);
+      outline: none;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+    .form-group select option { background: var(--gray-dark); color: var(--white); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold); background: rgba(255,255,255,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; padding: 16px; font-size: 16px; }
+    .form-success {
+      display: none; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4);
+      border-radius: 6px; padding: 16px; text-align: center; color: #86efac;
+      margin-top: 16px; font-family: var(--font-accent);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #060d1f; padding: 80px 0 0;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px;
+      padding-bottom: 60px;
+    }
+    .footer-brand p { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.8; margin: 20px 0; }
+    .footer-logo { display: flex; align-items: center; gap: 12px; }
+    .footer-logo img { height: 48px; }
+    .footer-logo strong { font-family: var(--font-display); font-size: 1.2rem; color: var(--white); }
+    .footer-logo span { font-family: var(--font-accent); font-size: 11px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; display: block; }
+    .footer-col h4 {
+      font-family: var(--font-accent); font-size: 13px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul li a {
+      font-size: 14px; color: rgba(255,255,255,0.5); transition: color 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .footer-col ul li a::before {
+      content: '→'; font-size: 11px; color: var(--gold); opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-col ul li a:hover::before { opacity: 1; }
+    .footer-contact-item {
+      display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px;
+    }
+    .footer-contact-item i { color: var(--gold); width: 16px; margin-top: 3px; }
+    .footer-contact-item span { font-size: 14px; color: rgba(255,255,255,0.5); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 24px 0; display: flex;
+      justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom span { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-bottom a { color: var(--gold); }
+
+    /* ===== FLOATING BUTTONS ===== */
+    .float-whatsapp {
+      position: fixed; bottom: 90px; right: 24px; z-index: 900;
+      width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 24px;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: var(--transition); animation: pulse 2.5s infinite;
+    }
+    .float-whatsapp:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
+    .back-to-top {
+      position: fixed; bottom: 24px; right: 24px; z-index: 900;
+      width: 44px; height: 44px; background: var(--navy); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; display: none; align-items: center; justify-content: center;
+      color: var(--white); cursor: pointer; transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .back-to-top:hover { background: var(--gold); color: var(--navy); }
+    .back-to-top.visible { display: flex; }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7), 0 0 0 12px rgba(37,211,102,0.1); }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: none; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+      .process-steps::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .about-grid, .why-grid, .faq-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-accent-img { display: none; }
+      .testimonial-inner { grid-template-columns: 1fr; }
+      .projects-masonry { columns: 2; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-top: 1px solid rgba(13,34,87,0.1); }
+      .stat-item:nth-child(4) { border-top: 1px solid rgba(13,34,87,0.1); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      #hero { min-height: 100svh; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .services-grid { grid-template-columns: 1fr; }
+      .projects-masonry { columns: 1; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .contact-form { padding: 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .about-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="https://laxmifacade.netlify.app/assets/logo.png" alt="Laxmi Facade Logo" onerror="this.style.display='none'" />
+        <div class="nav-logo-text">
+          <strong>Laxmi Facade</strong>
+          <span>Engineering Excellence</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="tel:+91987654xxxx" class="nav-cta">
+        <i class="fas fa-phone"></i>&nbsp; Call Now
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></span>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#projects">Projects</a>
+  <a href="#why-us">Why Us</a>
+  <a href="#process">Process</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <i class="fas fa-award" style="color:var(--gold)"></i>
+        <span>Trusted by 500+ Projects Across India</span>
+      </div>
+      <h1 class="hero-title reveal">
+        Transforming Buildings with<br>
+        <span class="accent">Innovative Facade</span> Solutions
+      </h1>
+      <p class="hero-sub reveal">
+        Specialists in Structural Glazing, ACP Cladding, Curtain Wall Systems, Spider Glazing, and Aluminum Fabrication — delivering architectural excellence with precision engineering.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#contact" class="btn btn-gold">
+          <i class="fas fa-envelope"></i> Get Free Quote
+        </a>
+        <a href="#projects" class="btn btn-outline">
+          <i class="fas fa-images"></i> View Projects
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-dot"></div>
+    <p class="scroll-label">Scroll</p>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner" id="marqueeInner">
+    <span class="marquee-item"><i class="fas fa-gem"></i> Structural Glazing</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> ACP Cladding</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> Curtain Wall Systems</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> Spider Glazing</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> Aluminum Fabrication</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> Glass Facades</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> Structural Glazing</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> ACP Cladding</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> Curtain Wall Systems</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> Spider Glazing</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> Aluminum Fabrication</span>
+    <span class="marquee-item"><i class="fas fa-gem"></i> Glass Facades</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal-left">
+        <div class="experience-badge">
+          <div class="num">15<span style="color:var(--navy)">+</span></div>
+          <div class="label">Years of<br>Excellence</div>
+        </div>
+        <div class="about-main-img">
+          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80" alt="Modern glass building facade" />
+        </div>
+        <div class="about-accent-img">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80" alt="Facade engineering detail" />
+        </div>
+      </div>
+      <div class="about-text reveal-right">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Built on Precision,<br><span>Delivered with Pride</span></h2>
+        <p>Laxmi Facade is a premier facade engineering company headquartered in Bhubaneswar, Odisha, bringing over 15 years of expertise in architectural glazing, aluminum fabrication, and modern building envelope solutions.</p>
+        <p>We combine cutting-edge engineering with superior materials to create facades that are not just beautiful — but structurally sound, weatherproof, and built to last decades.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <h4>ISO Certified Quality</h4>
+              <p>Every project meets international quality standards</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fas fa-users"></i></div>
+            <div>
+              <h4>Expert Engineering Team</h4>
+              <p>50+ skilled engineers and fabricators</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <h4>On-Time Delivery</h4>
+              <p>98% projects delivered on schedule</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>Pan-India Presence</h4>
+              <p>Projects across 12+ states in India</p>
+            </div>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-num">500<span>+</span></div>
+            <div class="stat-label">Projects Done</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">15<span>+</span></div>
+            <div class="stat-label">Years Active</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">200<span>+</span></div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">50<span>+</span></div>
+            <div class="stat-label">Expert Team</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our <span>Core Services</span></h2>
+      <p class="section-subtitle">From concept to completion, we deliver complete facade engineering solutions for commercial, residential, and institutional buildings.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Structural Glazing" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-wrap"><i class="fas fa-border-all"></i></div>
+        </div>
+        <div class="service-body">
+          <h3>Structural Glazing</h3>
+          <p>High-performance structural silicone glazing systems that bond glass panels to aluminum frames without visible fixings.</p>
+          <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="ACP Cladding" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-wrap"><i class="fas fa-layer-group"></i></div>
+        </div>
+        <div class="service-body">
+          <h3>ACP Cladding</h3>
+          <p>Aluminum Composite Panel cladding for modern aesthetics and weather-resistant building exteriors with fire-rated options.</p>
+          <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=600&q=80" alt="Spider Glazing" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-wrap"><i class="fas fa-th"></i></div>
+        </div>
+        <div class="service-body">
+          <h3>Spider Glazing</h3>
+          <p>Frameless point-fixed glass systems using spider fittings for dramatic, unobstructed glass facades and canopies.</p>
+          <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=600&q=80" alt="Curtain Wall" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-wrap"><i class="fas fa-building"></i></div>
+        </div>
+        <div class="service-body">
+          <h3>Curtain Wall Systems</h3>
+          <p>Unitized and stick-built curtain wall systems for high-rise buildings offering superior thermal and acoustic performance.</p>
+          <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Glass Facade" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-wrap"><i class="fas fa-glass-martini-alt"></i></div>
+        </div>
+        <div class="service-body">
+          <h3>Glass Facade Installation</h3>
+          <p>Full-building glass facade installation including tempered, laminated, and double-glazed units for energy efficiency.</p>
+          <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&q=80" alt="Aluminum Fabrication" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-wrap"><i class="fas fa-industry"></i></div>
+        </div>
+        <div class="service-body">
+          <h3>Aluminum Fabrication</h3>
+          <p>Precision aluminum fabrication for windows, doors, partitions, skylights, and custom architectural metalwork.</p>
+          <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="Architectural Facade" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-wrap"><i class="fas fa-drafting-compass"></i></div>
+        </div>
+        <div class="service-body">
+          <h3>Architectural Facades</h3>
+          <p>Custom architectural facade solutions combining multiple systems for iconic building aesthetics and performance.</p>
+          <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Commercial Facades" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-wrap"><i class="fas fa-city"></i></div>
+        </div>
+        <div class="service-body">
+          <h3>Commercial Building Facades</h3>
+          <p>End-to-end facade solutions for IT parks, malls, hospitals, hotels, and corporate headquarters.</p>
+          <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="projects-header reveal">
+      <div class="section-label" style="color:var(--gold)">Our Portfolio</div>
+      <h2 class="section-title">Featured <span style="color:var(--gold)">Projects</span></h2>
+      <p class="section-subtitle">A showcase of our finest facade engineering work across commercial, residential, and institutional projects.</p>
+    </div>
+    <div class="filter-tabs reveal">
+      <button class="filter-tab active" data-filter="all">All Projects</button>
+      <button class="filter-tab" data-filter="glazing">Glazing</button>
+      <button class="filter-tab" data-filter="acp">ACP Cladding</button>
+      <button class="filter-tab" data-filter="curtain">Curtain Wall</button>
+      <button class="filter-tab" data-filter="spider">Spider Glazing</button>
+    </div>
+    <div class="projects-masonry reveal">
+      <div class="project-item" data-cat="glazing">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Glass Tower Project" />
+        <div class="project-overlay">
+          <span class="view-btn"><i class="fas fa-expand"></i></span>
+          <span>Structural Glazing</span>
+          <h4>Crystal Tower, Bhubaneswar</h4>
+        </div>
+      </div>
+      <div class="project-item" data-cat="acp">
+        <img src="https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=600&q=80" alt="ACP Office Building" style="height:280px;object-fit:cover;" />
+        <div class="project-overlay">
+          <span class="view-btn"><i class="fas fa-expand"></i></span>
+          <span>ACP Cladding</span>
+          <h4>TechPark Corporate HQ</h4>
+        </div>
+      </div>
+      <div class="project-item" data-cat="curtain">
+        <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=600&q=80" alt="Curtain Wall Building" />
+        <div class="project-overlay">
+          <span class="view-btn"><i class="fas fa-expand"></i></span>
+          <span>Curtain Wall</span>
+          <h4>Orion Business Centre</h4>
+        </div>
+      </div>
+      <div class="project-item" data-cat="spider">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Spider Glazing Entrance" style="height:260px;object-fit:cover;" />
+        <div class="project-overlay">
+          <span class="view-btn"><i class="fas fa-expand"></i></span>
+          <span>Spider Glazing</span>
+          <h4>Grand Hotel Entrance Lobby</h4>
+        </div>
+      </div>
+      <div class="project-item" data-cat="glazing">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Commercial Facade" style="height:300px;object-fit:cover;" />
+        <div class="project-overlay">
+          <span class="view-btn"><i class="fas fa-expand"></i></span>
+          <span>Glass Facade</span>
+          <h4>Commercial Plaza, Hyderabad</h4>
+        </div>
+      </div>
+      <div class="project-item" data-cat="acp">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="Residential ACP" />
+        <div class="project-overlay">
+          <span class="view-btn"><i class="fas fa-expand"></i></span>
+          <span>ACP Cladding</span>
+          <h4>Luxury Apartment Towers</h4>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:48px;" class="reveal">
+      <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4)">
+        View All Projects <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-image reveal-left">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Engineering team at work" />
+        <div class="why-image-badge">
+          <strong>98%</strong>
+          <span>Client Satisfaction Rate</span>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">The Laxmi Facade <span>Difference</span></h2>
+        <p class="section-subtitle" style="margin-bottom:0">We don't just install facades — we engineer trust into every square meter of glass, aluminum, and composite panel.</p>
+        <div class="why-features">
+          <div class="why-feature">
+            <div class="why-icon"><i class="fas fa-medal"></i></div>
+            <div>
+              <h4>Premium Quality Materials</h4>
+              <p>We source only from certified suppliers — AAMA-compliant aluminum, tempered glass, and fire-rated ACP panels that meet international standards.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon"><i class="fas fa-drafting-compass"></i></div>
+            <div>
+              <h4>Expert Engineering Team</h4>
+              <p>Our in-house engineers handle structural calculations, thermal analysis, wind load testing, and complete shop drawings before any fabrication begins.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <h4>On-Time Project Delivery</h4>
+              <p>Integrated project management with milestone tracking ensures your facade is complete on schedule, every time.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon"><i class="fas fa-hard-hat"></i></div>
+            <div>
+              <h4>Uncompromised Safety Standards</h4>
+              <p>OSHA-aligned safety protocols at every site, with trained supervisors and full documentation for every installation project.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-icon"><i class="fas fa-rupee-sign"></i></div>
+            <div>
+              <h4>Competitive & Transparent Pricing</h4>
+              <p>Detailed BOQ with no hidden costs. We optimize material usage and procurement to deliver the best value without compromising quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <div class="section-label" style="color:var(--gold)">How We Work</div>
+      <h2 class="section-title" style="color:var(--white)">Our <span style="color:var(--gold)">Project Process</span></h2>
+      <p class="section-subtitle">A streamlined 6-step process from your first call to the final handover — built for clarity, efficiency, and zero surprises.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num active">01</div>
+        <div class="step-icon-big"><i class="fas fa-comments"></i></div>
+        <h4>Consultation</h4>
+        <p>Site visit, requirement analysis, and scope definition with your architects and contractors.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num inactive">02</div>
+        <div class="step-icon-big"><i class="fas fa-pencil-ruler"></i></div>
+        <h4>Design</h4>
+        <p>Detailed facade design, structural calculations, material selection, and 3D visualization.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num inactive">03</div>
+        <div class="step-icon-big"><i class="fas fa-clipboard-list"></i></div>
+        <h4>Planning</h4>
+        <p>Project scheduling, procurement planning, BOQ finalization, and contractor coordination.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num inactive">04</div>
+        <div class="step-icon-big"><i class="fas fa-cogs"></i></div>
+        <h4>Manufacturing</h4>
+        <p>In-house precision fabrication of aluminum frames, panels, and all facade components.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num inactive">05</div>
+        <div class="step-icon-big"><i class="fas fa-hard-hat"></i></div>
+        <h4>Installation</h4>
+        <p>Expert installation by our trained site team following all safety and quality protocols.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num inactive">06</div>
+        <div class="step-icon-big"><i class="fas fa-check-circle"></i></div>
+        <h4>Final Inspection</h4>
+        <p>Comprehensive QC check, weather testing, punch list, and client sign-off before handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="section-label">Client Reviews</div>
+      <h2 class="section-title">What Our <span>Clients Say</span></h2>
+    </div>
+    <div class="testimonials-carousel reveal">
+      <div class="testimonials-track" id="testiTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-inner">
+            <div class="testi-item">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Laxmi Facade delivered our 12-floor structural glazing project on time and within budget. The quality of the glass and aluminum is exceptional — our clients love the new look."</p>
+              <div class="testi-author">
+                <div class="testi-avatar">RK</div>
+                <div class="testi-info">
+                  <strong>Rajesh Kumar</strong>
+                  <span>Project Director, Orbit Developers</span>
+                </div>
+              </div>
+            </div>
+            <div class="testi-item">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"The ACP cladding work on our IT park was flawless. Their team's attention to detail, site safety protocols, and communication throughout the project was outstanding."</p>
+              <div class="testi-author">
+                <div class="testi-avatar">SP</div>
+                <div class="testi-info">
+                  <strong>Sunita Panda</strong>
+                  <span>CEO, InfoTech Construction Co.</span>
+                </div>
+              </div>
+            </div>
+            <div class="testi-item">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"We hired Laxmi Facade for a complex spider glazing installation at our hotel lobby. The result is stunning — exactly as envisioned by our architect. Highly professional team."</p>
+              <div class="testi-author">
+                <div class="testi-avatar">AM</div>
+                <div class="testi-info">
+                  <strong>Anil Mohanty</strong>
+                  <span>General Manager, Grand Prestige Hotels</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-inner">
+            <div class="testi-item">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"From the initial quote to final handover, Laxmi Facade made the curtain wall installation seamless. Their engineering team resolved every technical challenge with expertise."</p>
+              <div class="testi-author">
+                <div class="testi-avatar">PD</div>
+                <div class="testi-info">
+                  <strong>Priya Das</strong>
+                  <span>Site Architect, BVM Associates</span>
+                </div>
+              </div>
+            </div>
+            <div class="testi-item">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Best facade contractor in Odisha, period. Their pricing was transparent, quality was top-notch, and the installation crew worked safely and efficiently. Will definitely hire again."</p>
+              <div class="testi-author">
+                <div class="testi-avatar">VR</div>
+                <div class="testi-info">
+                  <strong>Vivek Rao</strong>
+                  <span>Owner, Rao Real Estate Group</span>
+                </div>
+              </div>
+            </div>
+            <div class="testi-item">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"The aluminum fabrication work for our showroom was completed ahead of schedule. The finishes were pristine. Laxmi Facade is our go-to team for all future projects."</p>
+              <div class="testi-author">
+                <div class="testi-avatar">NK</div>
+                <div class="testi-info">
+                  <strong>Nalini Kar</strong>
+                  <span>Director, Prestige Interiors Ltd.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <div class="carousel-dot active" data-slide="0"></div>
+      <div class="carousel-dot" data-slide="1"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div>
+        <div class="section-label reveal">FAQ</div>
+        <h2 class="section-title reveal">Common <span>Questions</span></h2>
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What types of glazing systems do you install?
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We install structural glazing, spider glazing, curtain wall unitized/stick systems, skylight glazing, and point-fixed glass facades. We work with tempered, laminated, double-glazed, and low-e glass units depending on project requirements.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Do you provide a warranty on facade installations?
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. We provide a 5-year workmanship warranty on all installations and pass through the manufacturer's warranty on materials, which is typically 10–15 years for quality aluminum systems and glass units.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Can you work with our architect's existing design drawings?
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Absolutely. Our engineering team works directly from architect-provided GFCs, AutoCAD drawings, or BIM files to produce accurate shop drawings and fabrication specs aligned with your design intent.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              What is the typical project timeline for a medium-sized facade?
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">A medium commercial building (5–8 floors) typically takes 8–14 weeks from design sign-off to installation completion. Timeline depends on facade complexity, material availability, and site readiness.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Do you handle projects outside Odisha?
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. We have executed projects across Odisha, Andhra Pradesh, Telangana, West Bengal, and Jharkhand. We welcome inquiries from across India and can deploy mobile site teams with our own supervision.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              How do I get a quote for my project?
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Simply fill out the contact form on this page or call us directly. Share your drawings, site dimensions, or even rough sketches and we'll get back to you with a detailed preliminary estimate within 48 hours.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="faq-cta">
+          <h3>Ready to Start Your Project?</h3>
+          <p>Talk to our facade engineering team today. We'll assess your requirements and provide a detailed proposal with no obligation.</p>
+          <div class="contact-info">
+            <div class="contact-row">
+              <i class="fas fa-phone"></i>
+              <span>+91 98765 xxxxx</span>
+            </div>
+            <div class="contact-row">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp Us Anytime</span>
+            </div>
+            <div class="contact-row">
+              <i class="fas fa-envelope"></i>
+              <span>info@laxmifacade.com</span>
+            </div>
+            <div class="contact-row">
+              <i class="fas fa-map-marker-alt"></i>
+              <span> Bhubaneswar, Odisha</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-gold" style="width:100%;justify-content:center;">
+            Get Free Consultation <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-header reveal">
+      <div class="section-label" style="color:var(--gold)">Get In Touch</div>
+      <h2 class="section-title" style="color:var(--white)">Start Your <span style="color:var(--gold)">Project Today</span></h2>
+      <p class="section-subtitle">Fill out the form and our team will get back to you within 24 hours with a tailored quote.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-box reveal-left">
+        <h3>Let's Build Something <span style="color:var(--gold)">Remarkable</span></h3>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <strong>Office Address</strong>
+            <span>Bhubaneswar, Odisha - 752054</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <strong>Call Us</strong>
+            <span><a href="tel:+91987654xxxx" style="color:rgba(255,255,255,0.6)">+91 98765 xxxxx</a></span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <strong>Email Us</strong>
+            <span><a href="mailto:info@laxmifacade.com" style="color:rgba(255,255,255,0.6)">info@laxmifacade.com</a></span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <strong>Working Hours</strong>
+            <span>Mon – Sat: 9:00 AM – 7:00 PM</span>
+          </div>
+        </div>
+        <div class="contact-social">
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/91987654xxxx" class="social-icon" aria-label="WhatsApp" style="background:rgba(37,211,102,0.2);border-color:rgba(37,211,102,0.4);color:#25D366"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <!-- Google Maps embed placeholder -->
+        <div style="margin-top:32px;border-radius:8px;overflow:hidden;height:200px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119820.77834208297!2d85.71970882167968!3d20.296059099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0xfc580e2b68b33fa8!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            width="100%" height="200" style="border:0" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+      <div class="contact-form reveal-right">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="e.g. Rahul Sharma" id="f-name" />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+91 98765 XXXXX" id="f-phone" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="rahul@company.com" id="f-email" />
+        </div>
+        <div class="form-group">
+          <label>Project Requirement</label>
+          <select id="f-service">
+            <option value="">Select a service…</option>
+            <option>Structural Glazing</option>
+            <option>ACP Cladding</option>
+            <option>Spider Glazing</option>
+            <option>Curtain Wall System</option>
+            <option>Glass Facade Installation</option>
+            <option>Aluminum Fabrication</option>
+            <option>Architectural Facade</option>
+            <option>Other / Multiple Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Project Location</label>
+          <input type="text" placeholder="City, State" id="f-location" />
+        </div>
+        <div class="form-group">
+          <label>Message / Project Details</label>
+          <textarea placeholder="Tell us about your project — building type, approximate area, timeline, and any specific requirements…" id="f-message"></textarea>
+        </div>
+        <button class="btn btn-gold form-submit" onclick="submitForm()">
+          <i class="fas fa-paper-plane"></i> Send Enquiry
+        </button>
+        <div class="form-success" id="formSuccess">
+          <i class="fas fa-check-circle" style="color:#86efac;font-size:24px;display:block;margin-bottom:8px"></i>
+          Thank you! We'll be in touch within 24 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="https://laxmifacade.netlify.app/assets/logo.png" alt="Laxmi Facade" onerror="this.style.display='none'" />
+          <div>
+            <strong>Laxmi Facade</strong>
+            <span>Engineering Excellence</span>
+          </div>
+        </div>
+        <p>Bhubaneswar's leading facade engineering company, delivering premium glazing, ACP cladding, and aluminum fabrication solutions for over 15 years across India.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="#" class="social-icon" style="width:36px;height:36px"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" style="width:36px;height:36px"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon" style="width:36px;height:36px"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/91987654xxxx" class="social-icon" style="width:36px;height:36px;background:rgba(37,211,102,0.15);border-color:rgba(37,211,102,0.3);color:#25D366"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Structural Glazing</a></li>
+          <li><a href="#services">ACP Cladding</a></li>
+          <li><a href="#services">Spider Glazing</a></li>
+          <li><a href="#services">Curtain Wall</a></li>
+          <li><a href="#services">Glass Facades</a></li>
+          <li><a href="#services">Aluminum Fabrication</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Company</a></li>
+          <li><a href="#projects">Our Projects</a></li>
+          <li><a href="#why-us">Why Choose Us</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span> Bhubaneswar, Odisha - 752054</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span><a href="tel:+91987654xxxx" style="color:rgba(255,255,255,0.5)">+91 98765 xxxx</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span><a href="mailto:info@laxmifacade.com" style="color:rgba(255,255,255,0.5)">info@laxmifacade.com</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <span><a href="https://wa.me/91987654xxxx" style="color:#25D366">Chat on WhatsApp</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Laxmi Facade. All rights reserved.</span>
+      <span>Designed with <span style="color:var(--gold)">♥</span> Dreamonix Solution</span>
+      <span><a href="#hero">Privacy Policy</a> · <a href="#hero">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/91987654xxxx?text=Hi%20Laxmi%20Facade%2C%20I%27m%20interested%20in%20your%20facade%20services.%20Please%20get%20in%20touch." 
+   class="float-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+  /* === NAVBAR === */
+  const navbar = document.getElementById('navbar');
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      navbar.classList.add('scrolled');
+      backToTop.classList.add('visible');
+    } else {
+      navbar.classList.remove('scrolled');
+      backToTop.classList.remove('visible');
+    }
+  });
+
+  /* === MOBILE MENU === */
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.add('open');
+  });
+  document.getElementById('mobileClose').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.remove('open');
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  });
+
+  /* === SCROLL REVEAL === */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* === FAQ === */
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      el.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+
+  /* === TESTIMONIAL CAROUSEL === */
+  let currentSlide = 0;
+  const track = document.getElementById('testiTrack');
+  const dots = document.querySelectorAll('.carousel-dot');
+
+  function goToSlide(n) {
+    currentSlide = n;
+    track.style.transform = `translateX(-${n * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === n));
+  }
+  dots.forEach(d => d.addEventListener('click', () => goToSlide(+d.dataset.slide)));
+  setInterval(() => goToSlide((currentSlide + 1) % dots.length), 5000);
+
+  /* === FILTER TABS === */
+  document.querySelectorAll('.filter-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.project-item').forEach(item => {
+        if (filter === 'all' || item.dataset.cat === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* === CONTACT FORM === */
+  function submitForm() {
+    const name = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    if (!name || !phone || !email) {
+      alert('Please fill in your name, phone, and email before submitting.');
+      return;
+    }
+    document.getElementById('formSuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 6000);
+  }
+
+  /* === COUNTER ANIMATION === */
+  function animateCounters() {
+    document.querySelectorAll('.stat-num').forEach(el => {
+      const text = el.textContent;
+      const num = parseInt(text);
+      const suffix = text.replace(/[0-9]/g, '').replace('span', '').replace(/[<>\/]/g,'');
+      let start = 0;
+      const step = Math.ceil(num / 60);
+      const timer = setInterval(() => {
+        start = Math.min(start + step, num);
+        el.innerHTML = start + '<span>' + suffix.trim() + '</span>';
+        if (start >= num) clearInterval(timer);
+      }, 25);
+    });
+  }
+  const statsSection = document.querySelector('.stats-grid');
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCounters(); statsObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  if (statsSection) statsObserver.observe(statsSection);
+</script>
+</body>
+</html>
